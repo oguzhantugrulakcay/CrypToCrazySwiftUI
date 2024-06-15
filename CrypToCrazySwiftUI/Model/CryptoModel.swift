@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct Crypto : Codable{
+struct CryptoModel : Decodable, Identifiable{
+    let id = UUID()
     let currency : String
     let price : String
+    
+    
+    //id gelmeyecek ama struct kendisi id yi oluşturavilecek
+    private enum CodingKeys : String, CodingKey {
+        case currency = "currency"
+        case price = "price"
+    }
 }
